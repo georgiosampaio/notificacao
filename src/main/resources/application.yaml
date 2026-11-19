@@ -1,3 +1,25 @@
 spring:
-  application:
-    name: notificacao
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: "${EMAIL_USERNAME:test@example.com}"
+    password: "${EMAIL_PASSWORD:test-password}"
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+envio:
+  mail:
+    from: "${EMAIL_USERNAME:test@example.com}"
+    nameSender: 'Gens - Agendador de Tarefas'
+
+server:
+  port: 8082
